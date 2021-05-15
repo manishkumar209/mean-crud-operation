@@ -1,0 +1,31 @@
+<div class="container"><br/>
+  <h2>User List</h2> 
+  <button type="button" class="btn btn-primary" (click)="add()">Add User</button>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Profile Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of Users">
+        <td>{{user.fname}}</td>
+        <td>{{user.lname}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone_number}}</td>
+        <td><img src="http://localhost:3000/api/user/image/{{user._id}}" height="50px" width="50px"></td>
+        <td>
+          <button type="button" class="btn btn-link" (click)="get(user._id)">View</button>
+          <button type="button" class="btn btn-link" (click)="update(user._id)">Update</button>
+          <button type="button" class="btn btn-link" (click)="detele(user._id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
